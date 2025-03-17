@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Photo Gallery</title>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #87CEEB, #B0E0E6);
+            color: #333;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: auto;
+            padding: 20px;
+        }
+
+        h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #222;
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            padding: 20px;
+        }
+
+        .gallery img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .gallery img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal img {
+            max-width: 90%;
+            max-height: 80%;
+            border-radius: 10px;
+        }
+
+        .close {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            font-size: 30px;
+            color: white;
+            cursor: pointer;
+        }
+
+        .back-button {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 12px 24px;
+            font-size: 16px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: background 0.3s;
+        }
+
+        .back-button:hover {
+            background-color: #0056b3;
+        }
+
+        .footer {
+            margin-top: 30px;
+            padding: 15px;
+            background-color: #222;
+            color: white;
+            text-align: center;
+            font-size: 14px;
+        }
+    </style>
+</head>
+
+
+
+
+<body>
+    <!-- Navbar will be loaded here -->
+    <div id="navbar"></div>
+
+    <h2>Photo Gallery</h2>
+    <div class="gallery">
+
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ4Qoq2V0cicAumUZ_0YFTGYU3eOnfV5ZN4iw&s"
+            alt="Image 3" onclick="openModal(this)">
+        <img src="https://i.pinimg.com/474x/e1/40/d2/e140d290cea9c93e949ccf35a4dd124c.jpg" alt="Image 4"
+            onclick="openModal(this)">
+        <img src="https://i.pinimg.com/474x/e6/c8/5f/e6c85fc21cfcd0046bb05267db146efb.jpg" alt="Image 1"
+            onclick="openModal(this)">
+        <img src="https://i.pinimg.com/474x/19/00/84/190084b3b60d7cbb31753dbed120b418.jpg" alt="Image 1"
+            onclick="openModal(this)">
+        <img src="https://i.pinimg.com/474x/b1/25/78/b1257835cb13bcb3f62feacfb44ba425.jpg" alt="Image 2"
+            onclick="openModal(this)">
+        <img src="https://i.pinimg.com/474x/ed/bb/08/edbb08de650993c787955addde5a3da3.jpg" alt="Image 3"
+            onclick="openModal(this)">
+        <img src="https://i.pinimg.com/474x/47/29/29/472929bfca8c42448aeef911226ffa56.jpg" alt="Image 4"
+            onclick="openModal(this)">
+        <img src="https://i.pinimg.com/474x/9d/43/bd/9d43bd3a5eb624cbd98fecee26fd41e5.jpg" alt="Image 1"
+            onclick="openModal(this)">
+        <img src="https://i.pinimg.com/474x/4e/4b/32/4e4b324027fa12ddf691d4bcb046dd84.jpg" alt="Image 2"
+            onclick="openModal(this)">
+        <img src="https://i.pinimg.com/474x/2f/a0/d1/2fa0d185ce65c667b351ca92b83026bc.jpg" alt="Image 3"
+            onclick="openModal(this)">
+        <img src="https://i.pinimg.com/474x/f3/3f/e1/f33fe1e20fec3327f2df8d87a5ddc9eb.jpg" alt="Image 4"
+            onclick="openModal(this)">
+        <img src="https://i.pinimg.com/474x/ef/b9/0a/efb90a48271c4709c74828315466ed41.jpg" alt="Image 1"
+            onclick="openModal(this)">
+        <img src="https://i.pinimg.com/474x/1e/fd/fc/1efdfc33475a0151617c093123dff14d.jpg" alt="Image 2"
+            onclick="openModal(this)">
+        <img src="https://i.pinimg.com/474x/4e/03/87/4e03872d7166cc5ed92c490708af3261.jpg" alt="Image 3"
+            onclick="openModal(this)">
+        <img src="https://i.pinimg.com/474x/e0/70/a0/e070a0fe5560532153a7bb51dd53a685.jpg" alt="Image 4"
+            onclick="openModal(this)">
+        <img src="https://i.pinimg.com/474x/39/aa/4e/39aa4e28463557708f0ef06c92a6171d.jpg" alt="Image 1"
+            onclick="openModal(this)">
+        <img src="https://i.pinimg.com/474x/aa/0f/6d/aa0f6dea70649d495a64cd7741a4f445.jpg" alt="Image 2"
+            onclick="openModal(this)">
+        <img src="https://i.pinimg.com/474x/e0/70/a0/e070a0fe5560532153a7bb51dd53a685.jpg" alt="Image 3"
+            onclick="openModal(this)">
+        <img src="https://i.pinimg.com/474x/cd/8e/f6/cd8ef6c03162bc68605d491206608a98.jpg" alt="Image 1"
+            onclick="openModal(this)">
+        <img src="https://i.pinimg.com/474x/05/a6/98/05a698e8295457728ff5b0e5472d3f28.jpg" alt="Image 2"
+            onclick="openModal(this)">
+
+        <img src="https://i.pinimg.com/474x/c0/39/63/c03963824bd6c1af59bb628729d2f387.jpg" alt="Image 1"
+            onclick="openModal(this)">
+        <img src="https://i.pinimg.com/474x/fa/bf/42/fabf4229db4b23dd3afc79a2eb86cb94.jpg" alt="Image 2"
+            onclick="openModal(this)">
+        <img src="https://i.pinimg.com/474x/70/73/35/7073358cd9e99c3f0c695f2fa1b88b86.jpg" alt="Image 3"
+            onclick="openModal(this)">
+        <img src="https://i.pinimg.com/474x/05/7f/9d/057f9d97774bebbebfb9bc0be14999db.jpg" alt="Image 4"
+            onclick="openModal(this)">
+
+        <img src="https://i.pinimg.com/736x/5b/8a/c9/5b8ac9d7f209b653f6eeb639bca1d36f.jpg" alt="Image 4"
+            onclick="openModal(this)">
+
+    </div>
+
+    <!-- Modal for image preview -->
+    <div class="modal" id="modal" onclick="closeModal()">
+        <span class="close">&times;</span>
+        <img id="modalImg">
+    </div>
+
+    <script>
+        // Load Navbar
+        fetch('navbar.html')
+            .then(response => response.text())
+            .then(data => document.getElementById('navbar').innerHTML = data);
+
+        // Open Image Modal
+        function openModal(img) {
+            document.getElementById("modal").style.display = "flex";
+            document.getElementById("modalImg").src = img.src;
+        }
+
+        // Close Image Modal
+        function closeModal() {
+            document.getElementById("modal").style.display = "none";
+        }
+
+
+    </script>
+
+    <button onclick="window.location.href='navbar.html';">🏠 Back to Home</button>
+
+
+    <div class="footer">
+        &copy; 2025 Photo Gallery. All Rights Reserved by Sadia
+        <p>Follow us on:
+            <a href="https://facebook.com">Facebook</a> |
+            <a href="https://twitter.com">Twitter</a> |
+            <a href="https://instagram.com">Instagram</a>
+        </p>
+
+    </div>
+</body>
+
+</html>
