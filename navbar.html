@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navigation Bar with Smooth Slider</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: black;
+            color: white;
+        }
+
+        .navbar {
+            background-color: #333;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 10px 0;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+        }
+
+        .navbar ul {
+            list-style-type: none;
+            display: flex;
+            gap: 20px;
+        }
+
+        .navbar ul li a {
+            text-decoration: none;
+            color: white;
+            padding: 10px 15px;
+            transition: 0.3s;
+        }
+
+        .navbar ul li a:hover {
+            background-color: #575757;
+            border-radius: 5px;
+        }
+
+        .slider {
+            position: relative;
+            max-width: 80%;
+            height: 400px;
+            margin: 80px auto;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(255, 255, 255, 0.3);
+        }
+
+        .slides {
+            display: flex;
+            width: 100%;
+            height: 100%;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .slides img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .prev,
+        .next {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(255, 255, 255, 0.5);
+            color: black;
+            border: none;
+            padding: 15px;
+            cursor: pointer;
+            font-size: 20px;
+            transition: 0.3s;
+            border-radius: 50%;
+        }
+
+        .prev:hover,
+        .next:hover {
+            background-color: rgba(255, 255, 255, 0.8);
+        }
+
+        .prev {
+            left: 10px;
+        }
+
+        .next {
+            right: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1 style="text-align: center; margin-top: 20px; color: white; font-size: 32px;">🌟 Welcome to My Website! 🚀</h1>
+    <p style="text-align: center; color: white; font-size: 18px;">Hope you have a great time exploring!
+
+    <nav class="navbar">
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#lessons">Lessons</a></li>
+            <li><a href="Gallery.html">Gallery</a></li>
+            <li><a href="#community">Community</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <div class="slider">
+        <button class="prev" onclick="moveSlide(-1)">&#10094;</button>
+        <div class="slides">
+            <img src="https://i.pinimg.com/474x/24/c8/a0/24c8a0a9e7c7cb59456e57d8893970fd.jpg" alt="HTML Basics">
+            <img src="https://i.pinimg.com/474x/d5/60/e5/d560e57e4cd0db6d503cf0d635e8807f.jpg" alt="CSS Fundamentals">
+            <img src="https://i.pinimg.com/736x/2c/c2/3a/2cc23ad587c6a15ac225c6e33ffb77c4.jpg"
+                alt="JavaScript Essentials">
+            <img src="https://i.pinimg.com/736x/fa/cc/4b/facc4ba1b70d1b656aac8acc5f03cd40.jpg" alt="React Development">
+            <img src="https://i.pinimg.com/474x/f2/51/84/f251846586afe1bf389c6841d1960d3c.jpg" alt="Python Programming">
+            <img src="https://i.pinimg.com/736x/f7/8c/ef/f78cef0dd20b57db43cc6c93cc4e7303.jpg" alt="AI and ML">
+        </div>
+        <button class="next" onclick="moveSlide(1)">&#10095;</button>
+    </div>
+
+    <div class="content">
+        <h1>Welcome to the Coding Hub</h1>
+        <p>This is a sample content section to show the navigation bar effect.</p>
+    </div>
+
+    <script>
+        let currentIndex = 0;
+        function moveSlide(direction) {
+            const slides = document.querySelector('.slides');
+            const totalSlides = slides.children.length;
+            const slideWidth = slides.children[0].clientWidth;
+
+            currentIndex += direction;
+            if (currentIndex < 0) {
+                currentIndex = totalSlides - 1;
+            } else if (currentIndex >= totalSlides) {
+                currentIndex = 0;
+            }
+
+            slides.style.transform = `translateX(${-currentIndex * slideWidth}px)`;
+        }
+    </script>
+</body>
+
+<div class="footer">
+    &copy; 2025 Photo Gallery. All Rights Reserved by Sadia
+</div>
+
+</html>
